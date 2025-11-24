@@ -19,7 +19,7 @@ const Teachers = () => {
         "98% av studenter förbättrar sina betyg"
       ],
       rating: 4.9,
-      students: 50,
+      students: 25,
       photo: sebastianPhoto
     },
     {
@@ -31,8 +31,8 @@ const Teachers = () => {
         "Expert på algoritmisk problemlösning",
         "Specialiserad på teknisk matematik"
       ],
-      rating: 4.8,
-      students: 45,
+      rating: 4.9,
+      students: 30,
       photo: achirchmanPhoto
     },
     {
@@ -44,11 +44,11 @@ const Teachers = () => {
         "Merit 2",
         "Merit 3"
       ],
-      rating: 5.0,
-      students: 30,
+      rating: 4.9,
+      students: 32,
       photo: gustavPhoto
     }
-  ];
+  ]; 
 
   const getSpecializationIcon = (specialization: string) => {
     switch (specialization) {
