@@ -2,6 +2,8 @@
 
 ## Project info
 
+> Deployment trigger - Vercel update
+
 **URL**: https://lovable.dev/projects/11d27671-ade6-4421-884f-9dbb39f9e0b1
 
 ## How can I edit this code?
