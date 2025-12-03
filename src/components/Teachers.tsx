@@ -12,7 +12,7 @@ const Teachers = () => {
     {
       name: "Sebastian Nyberg",
       specializations: ["Matematik", "Engelska", "NO"],
-      description: "Erfaren studiebuddy med stark bakgrund inom naturvetenskap och matematik. Hjälper studenter att förstå komplexa koncept genom praktiska exempel.",
+      description: "Erfaren studiebuddy med solid bakgrund inom naturvetenskap och matematik. Sebastian är skicklig på att bryta ned avancerade begrepp till lättbegripliga delar och arbetar gärna med praktiska exempel för att fördjupa förståelsen hos sina elever.",
       rating: 4.5,
       students: 25,
       photo: sebastianPhoto
@@ -20,7 +20,7 @@ const Teachers = () => {
     {
       name: "Achirsman Dev",
       specializations: ["Matematik", "NO", "Fysik"],
-      description: "Teknisk expert som kombinerar matematik med praktisk programmering. Hjälper studenter att se kopplingar mellan teori och praktik.",
+      description: "Teknisk och analytisk studiebuddy med stark förmåga att förklara matematiska och naturvetenskapliga samband på ett tydligt och strukturerat sätt. Achirsman hjälper elever att förstå både teori och praktisk tillämpning inom sina ämnen och bygger upp deras självförtroende genom metodisk handledning.",
       rating: 5.0,
       students: 30,
       photo: achirchmanPhoto
@@ -28,7 +28,7 @@ const Teachers = () => {
     {
       name: "Gustav Eder",
       specializations: ["Svenska", "SO", "Matematik"],
-      description: "Beskrivning av den nya studiebuddyn och dennes erfarenhet inom undervisning.",
+      description: "Engagerad och pedagogisk studiebuddy med bred erfarenhet av undervisning. Gustav skapar en trygg och motiverande lärandemiljö där eleverna får stöd att utveckla sina kunskaper i flera olika ämnen genom tydliga förklaringar och strukturerade arbetssätt.",
       rating: 4.7,
       students: 32,
       photo: gustavPhoto
