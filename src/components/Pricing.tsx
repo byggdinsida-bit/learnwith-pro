@@ -101,6 +101,24 @@ const Pricing = () => {
                 <Button 
                   variant={plan.popular ? "hero" : "outline-hero"} 
                   className="w-full"
+                  onClick={() => {
+                    // Scrolla till kontaktformuläret och lägg till paket i URL
+                    const contactSection = document.getElementById("contact-section");
+                    if (contactSection) {
+                      // Uppdatera URL med paketval
+                      const url = new URL(window.location.href);
+                      url.searchParams.set("package", plan.title);
+                      window.history.pushState({}, "", url.toString());
+                      
+                      // Scrolla till kontaktformuläret
+                      contactSection.scrollIntoView({ behavior: "smooth" });
+                      
+                      // Trigger en custom event för att uppdatera formuläret
+                      setTimeout(() => {
+                        window.dispatchEvent(new PopStateEvent("popstate"));
+                      }, 100);
+                    }
+                  }}
                 >
                   Välj {plan.title}
                 </Button>

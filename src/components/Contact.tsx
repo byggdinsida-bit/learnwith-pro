@@ -1,11 +1,18 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useState, useEffect } from "react";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Mail, Phone, MessageCircle, Clock, MapPin, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -15,6 +22,7 @@ const contactFormSchema = z.object({
   lastName: z.string().min(2, "Efternamn måste vara minst 2 tecken"),
   email: z.string().email("Ogiltig e-postadress"),
   subject: z.string().min(3, "Ämne måste vara minst 3 tecken"),
+  package: z.string().optional(),
   message: z.string().min(10, "Meddelande måste vara minst 10 tecken"),
 });
 
@@ -23,15 +31,38 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState<string>("");
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    control,
+    setValue,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      package: "",
+    },
   });
+
+  // Kolla URL-parametrar för förvalt paket
+  useEffect(() => {
+    const checkPackage = () => {
+      const params = new URLSearchParams(window.location.search);
+      const packageParam = params.get("package");
+      if (packageParam) {
+        setSelectedPackage(packageParam);
+        setValue("package", packageParam);
+      }
+    };
+    
+    checkPackage();
+    // Lyssna på URL-ändringar
+    window.addEventListener("popstate", checkPackage);
+    return () => window.removeEventListener("popstate", checkPackage);
+  }, [setValue]);
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
@@ -48,6 +79,7 @@ const Contact = () => {
           lastName: data.lastName,
           email: data.email,
           subject: data.subject,
+          package: data.package || "",
           message: data.message,
         }),
       });
@@ -102,7 +134,7 @@ const Contact = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section id="contact-section" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">
@@ -167,6 +199,36 @@ const Contact = () => {
                   />
                   {errors.subject && (
                     <p className="text-sm text-destructive mt-1">{errors.subject.message}</p>
+                  )}
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-2">Välj paket (valfritt)</label>
+                  <Controller
+                    name="package"
+                    control={control}
+                    render={({ field }) => (
+                      <Select
+                        value={field.value || ""}
+                        onValueChange={(value) => {
+                          field.onChange(value);
+                          setSelectedPackage(value);
+                        }}
+                      >
+                        <SelectTrigger className="border-primary/20 focus:border-primary">
+                          <SelectValue placeholder="Välj ett paket" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="Privatlektion">Privatlektion - 200 kr/timme</SelectItem>
+                          <SelectItem value="Grupplektion">Grupplektion - 110 kr/person/timme</SelectItem>
+                          <SelectItem value="Paket 5 lektioner">Paket 5 lektioner - 800 kr</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    )}
+                  />
+                  {selectedPackage && (
+                    <div className="mt-2 p-3 bg-primary/5 border border-primary/20 rounded-md">
+                      <p className="text-sm font-medium text-primary">Valt paket: {selectedPackage}</p>
+                    </div>
                   )}
                 </div>
                 <div>

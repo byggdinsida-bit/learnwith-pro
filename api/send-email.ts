@@ -29,7 +29,7 @@ export default async function handler(
   }
 
   try {
-    const { firstName, lastName, email, subject, message } = req.body;
+    const { firstName, lastName, email, subject, package: selectedPackage, message } = req.body;
 
     // Validering
     if (!firstName || !lastName || !email || !subject || !message) {
@@ -53,12 +53,13 @@ export default async function handler(
       from: "Kontaktformulär <onboarding@resend.dev>", // Du behöver verifiera din domän i Resend
       to: recipientEmail,
       replyTo: email,
-      subject: `Nytt meddelande: ${subject}`,
+      subject: `Nytt meddelande: ${subject}${selectedPackage ? ` - ${selectedPackage}` : ""}`,
       html: `
         <h2>Nytt meddelande från kontaktformuläret</h2>
         <p><strong>Från:</strong> ${firstName} ${lastName}</p>
         <p><strong>E-post:</strong> ${email}</p>
         <p><strong>Ämne:</strong> ${subject}</p>
+        ${selectedPackage ? `<p><strong>Valt paket:</strong> ${selectedPackage}</p>` : ""}
         <hr>
         <p><strong>Meddelande:</strong></p>
         <p>${message.replace(/\n/g, "<br>")}</p>
@@ -69,6 +70,7 @@ Nytt meddelande från kontaktformuläret
 Från: ${firstName} ${lastName}
 E-post: ${email}
 Ämne: ${subject}
+${selectedPackage ? `Valt paket: ${selectedPackage}` : ""}
 
 Meddelande:
 ${message}
