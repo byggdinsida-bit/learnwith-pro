@@ -11,40 +11,25 @@ const Teachers = () => {
   const teachers = [
     {
       name: "Sebastian Nyberg",
-      specializations: ["Matematik", "Fysik", "Kemi"],
+      specializations: ["Math", "English", "NO"],
       description: "Erfaren studiebuddy med stark bakgrund inom naturvetenskap och matematik. Hjälper studenter att förstå komplexa koncept genom praktiska exempel.",
-      achievements: [
-        "5 års erfarenhet av undervisning",
-        "Specialiserad inom högskole-matematik",
-        "98% av studenter förbättrar sina betyg"
-      ],
-      rating: 4.9,
+      rating: 4.5,
       students: 25,
       photo: sebastianPhoto
     },
     {
       name: "Achirsman Dev",
-      specializations: ["Matematik", "Programmering", "Problemlösning"],
+      specializations: ["Math", "NO"],
       description: "Teknisk expert som kombinerar matematik med praktisk programmering. Hjälper studenter att se kopplingar mellan teori och praktik.",
-      achievements: [
-        "Utvecklare med universitetsexamen",
-        "Expert på algoritmisk problemlösning",
-        "Specialiserad på teknisk matematik"
-      ],
-      rating: 4.9,
+      rating: 5.0,
       students: 30,
       photo: achirchmanPhoto
     },
     {
       name: "Gustav Eder",
-      specializations: ["Ämne 1", "Ämne 2"],
+      specializations: ["Swedish", "SO", "Math"],
       description: "Beskrivning av den nya studiebuddyn och dennes erfarenhet inom undervisning.",
-      achievements: [
-        "Merit 1",
-        "Merit 2",
-        "Merit 3"
-      ],
-      rating: 4.9,
+      rating: 4.7,
       students: 32,
       photo: gustavPhoto
     }
@@ -52,11 +37,14 @@ const Teachers = () => {
 
   const getSpecializationIcon = (specialization: string) => {
     switch (specialization) {
+      case "Math":
       case "Matematik":
         return <Calculator className="w-4 h-4" />;
-      case "Fysik":
-        return <Zap className="w-4 h-4" />;
-      case "Programmering":
+      case "English":
+      case "Swedish":
+        return <BookOpen className="w-4 h-4" />;
+      case "NO":
+      case "SO":
         return <BookOpen className="w-4 h-4" />;
       default:
         return <BookOpen className="w-4 h-4" />;
@@ -118,18 +106,6 @@ const Teachers = () => {
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   {teacher.description}
                 </p>
-
-                <div className="mb-6">
-                  <h4 className="font-semibold text-foreground mb-3">Meriter & Erfarenhet</h4>
-                  <ul className="space-y-2">
-                    {teacher.achievements.map((achievement, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
 
                 <Button className="w-full" variant="outline-hero">
                   <Mail className="w-4 h-4 mr-2" />
