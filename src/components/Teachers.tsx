@@ -11,7 +11,7 @@ const Teachers = () => {
   const teachers = [
     {
       name: "Sebastian Nyberg",
-      specializations: ["Math", "English", "NO"],
+      specializations: ["Matematik", "Engelska", "NO"],
       description: "Erfaren studiebuddy med stark bakgrund inom naturvetenskap och matematik. Hjälper studenter att förstå komplexa koncept genom praktiska exempel.",
       rating: 4.5,
       students: 25,
@@ -19,7 +19,7 @@ const Teachers = () => {
     },
     {
       name: "Achirsman Dev",
-      specializations: ["Math", "NO"],
+      specializations: ["Matematik", "NO", "Fysik"],
       description: "Teknisk expert som kombinerar matematik med praktisk programmering. Hjälper studenter att se kopplingar mellan teori och praktik.",
       rating: 5.0,
       students: 30,
@@ -27,7 +27,7 @@ const Teachers = () => {
     },
     {
       name: "Gustav Eder",
-      specializations: ["Swedish", "SO", "Math"],
+      specializations: ["Svenska", "SO", "Matematik"],
       description: "Beskrivning av den nya studiebuddyn och dennes erfarenhet inom undervisning.",
       rating: 4.7,
       students: 32,
@@ -41,8 +41,12 @@ const Teachers = () => {
       case "Matematik":
         return <Calculator className="w-4 h-4" />;
       case "English":
+      case "Engelska":
       case "Swedish":
+      case "Svenska":
         return <BookOpen className="w-4 h-4" />;
+      case "Fysik":
+        return <Zap className="w-4 h-4" />;
       case "NO":
       case "SO":
         return <BookOpen className="w-4 h-4" />;
