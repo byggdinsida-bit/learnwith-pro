@@ -91,21 +91,21 @@ const Teachers = () => {
                   </div>
                 </div>
 
-                <div className="mb-6">
-                  <h4 className="font-semibold text-foreground mb-3">Specialiseringar</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {teacher.specializations.map((spec, i) => (
-                      <Badge key={i} variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
-                        {getSpecializationIcon(spec)}
-                        {spec}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   {teacher.description}
                 </p>
+
+                <div className="mb-6">
+                  <h4 className="font-semibold text-foreground mb-3">Specialiseringar</h4>
+                  <ul className="space-y-2">
+                    {teacher.specializations.map((spec, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                        {spec}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
                 <Button className="w-full" variant="outline-hero">
                   <Mail className="w-4 h-4 mr-2" />
