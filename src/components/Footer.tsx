@@ -12,33 +12,33 @@ const Footer = () => {
                 <GraduationCap className="w-6 h-6 text-white" />
               </div>
               <div>
-                <span className="text-xl font-bold">StudyPro</span>
-                <span className="text-brand-blue-light font-bold">-UF</span>
+                <span className="text-xl font-bold text-white">StudyPro</span>
+                <span className="text-white font-bold">-UF</span>
               </div>
             </div>
-            <p className="text-muted-foreground mb-4">
+            <p className="text-white mb-4">
               Professionell studiehjälp som hjälper dig att nå dina akademiska mål. 
               Vi finns här för att stödja din utbildningsresa.
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-white">
               © 2025 StudyPro-UF. Alla rättigheter förbehållna.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Snabblänkar</h3>
+            <h3 className="font-bold text-lg mb-4 text-white">Snabblänkar</h3>
             <div className="space-y-2">
-              <a href="#hem" className="block text-muted-foreground hover:text-brand-blue-light transition-colors">
+              <a href="#hem" className="block text-white hover:text-brand-blue-light transition-colors">
                 Hem
               </a>
-              <a href="#larare" className="block text-muted-foreground hover:text-brand-blue-light transition-colors">
+              <a href="#larare" className="block text-white hover:text-brand-blue-light transition-colors">
                 Våra Lärare
               </a>
-              <a href="#amnen" className="block text-muted-foreground hover:text-brand-blue-light transition-colors">
+              <a href="#amnen" className="block text-white hover:text-brand-blue-light transition-colors">
                 Ämnen vi undervisar
               </a>
-              <a href="#kontakt" className="block text-muted-foreground hover:text-brand-blue-light transition-colors">
+              <a href="#kontakt" className="block text-white hover:text-brand-blue-light transition-colors">
                 Kontakta oss
               </a>
             </div>
@@ -46,19 +46,19 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Kontaktinformation</h3>
+            <h3 className="font-bold text-lg mb-4 text-white">Kontaktinformation</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-brand-blue-light" />
-                <span className="text-muted-foreground">studypro.uf@email.com</span>
+                <span className="text-white">studypro.uf@email.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-brand-blue-light" />
-                <span className="text-muted-foreground">+46 70 123 45 67</span>
+                <span className="text-white">+46 70 123 45 67</span>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-brand-blue-light mt-0.5" />
-                <span className="text-muted-foreground">
+                <span className="text-white">
                   Online & på plats efter<br />överenskommelse
                 </span>
               </div>
