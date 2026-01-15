@@ -67,7 +67,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-muted-foreground/20 mt-8 pt-8 text-center">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-white">
             Skapad av ByggDinSida-UF
           </p>
         </div>
