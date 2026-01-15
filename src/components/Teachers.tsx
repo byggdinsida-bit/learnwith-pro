@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Link } from "react-router-dom";
 import gustavPhoto from "@/Bilder/GUSTAV.jpg";
 import achirchmanPhoto from "@/Bilder/ACHIRSMAN.jpg";
 import sebastianPhoto from "@/Bilder/SEBASTIAN.jpg";
@@ -10,6 +11,7 @@ import { BookOpen, Calculator, Zap, Mail, Star } from "lucide-react";
 const Teachers = () => {
   const teachers = [
     {
+      id: "sebastian",
       name: "Sebastian Nyberg",
       specializations: ["Matematik", "Engelska", "NO"],
       description: "Erfaren studiebuddy med solid bakgrund inom naturvetenskap och matematik. Sebastian är skicklig på att bryta ned avancerade begrepp till lättbegripliga delar och arbetar gärna med praktiska exempel för att fördjupa förståelsen hos sina elever.",
@@ -18,6 +20,7 @@ const Teachers = () => {
       photo: sebastianPhoto
     },
     {
+      id: "achirsman",
       name: "Achirsman Dev",
       specializations: ["Matematik", "NO", "Fysik"],
       description: "Teknisk och analytisk studiebuddy med stark förmåga att förklara matematiska och naturvetenskapliga samband på ett tydligt och strukturerat sätt. Achirsman hjälper elever att förstå både teori och praktisk tillämpning inom sina ämnen och bygger upp deras självförtroende genom metodisk handledning.",
@@ -26,6 +29,7 @@ const Teachers = () => {
       photo: achirchmanPhoto
     },
     {
+      id: "gustav",
       name: "Gustav Eder",
       specializations: ["Svenska", "SO", "Matematik"],
       description: "Engagerad och pedagogisk studiebuddy med bred erfarenhet av undervisning. Gustav skapar en trygg och motiverande lärandemiljö där eleverna får stöd att utveckla sina kunskaper i flera olika ämnen genom tydliga förklaringar och strukturerade arbetssätt.",
@@ -111,10 +115,12 @@ const Teachers = () => {
                   </ul>
                 </div>
 
-                <Button className="w-full" variant="outline-hero">
-                  <Mail className="w-4 h-4 mr-2" />
-                  Kontakta {teacher.name.split(' ')[0]}
-                </Button>
+                <Link to={`/larare/${teacher.id}`} className="w-full">
+                  <Button className="w-full" variant="outline-hero">
+                    <Mail className="w-4 h-4 mr-2" />
+                    Kontakta {teacher.name.split(' ')[0]}
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           ))}
